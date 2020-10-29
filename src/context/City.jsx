@@ -1,0 +1,38 @@
+import React, { useState, useEffect, createContext, useContext } from 'react';
+import api from "../services/api";
+
+const CityContext = createContext();
+
+export default function CityProvider({ children }) {
+    const [cities, setCities] = useState(null);
+    const [state, setState] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(true);
+        api
+            .get('Contact/Cities?province=' + state)
+            .then(res => {
+                setCities(res.data.Items);
+            })
+            .catch(error => {
+                console.log(error.response.data);
+            })
+            .then(() => {
+                setIsLoading(false);
+            });
+    }, [state]);
+
+    return (
+        <CityContext.Provider value={{ cities, setState, isLoading }}>
+            { children }
+        </CityContext.Provider>
+    );
+}
+
+export function useCity() {
+    const context = useContext(CityContext);
+    const { cities, setState, isLoading } = context;
+
+    return { cities, setState, isLoading };
+}
