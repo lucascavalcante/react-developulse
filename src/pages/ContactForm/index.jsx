@@ -3,12 +3,13 @@ import { useCity } from "../../context/City";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import Dropdown from "../../components/Dropdown";
+import { internalApi } from "../../services/api";
 import "./index.css";
 
 function ContactForm() {
 	const [values, setValues] = useState(null);
 	const [message, setMessage] = useState("");
-	const { cities, setState, isLoading } = useCity();
+	const { cities, setState, isLoading, setIsLoading } = useCity();
 	const states = [
 		"AB",
 		"BC",
@@ -35,6 +36,19 @@ function ContactForm() {
 
 	function handleSubmit(event) {
 		event.preventDefault();
+		setIsLoading(true);
+		internalApi
+			.post("contact-form", values)
+			.then((res) => {
+				setMessage(res.data.message);
+			})
+			.catch((error) => {
+				const arrErrors = error.response.data.errors;
+				setMessage(arrErrors.map((err) => err.msg).join(", "));
+			})
+			.then(() => {
+				setIsLoading(false);
+			});
 	}
 
 	return (

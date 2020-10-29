@@ -68,12 +68,12 @@ router.post("/contact-form", jsonParser, async (req, res) => {
 		);
 
 		try {
-            httpCode = contactApi.data.StatusCode;
-            data.message = contactApi.data.Status;
-        } catch (error) {
-            httpCode = error.response.data.StatusCode;
-            data.message = error.response.data.Status;
-        }
+			httpCode = contactApi.data.StatusCode;
+			data.message = contactApi.data.Status;
+		} catch (error) {
+			httpCode = error.response.data.StatusCode;
+			data.message = error.response.data.Status;
+		}
 	}
 
 	res.status(httpCode).send(data);

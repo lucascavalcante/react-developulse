@@ -1,35 +1,36 @@
 body {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .container {
-    max-width: 480px;
-    background-color: lightyellow;
-    padding: 40px;
-    border-radius: 5px;
-    border: 2px solid darkslategray;
+	max-width: 480px;
+	background-color: lightyellow;
+	padding: 40px;
+	border-radius: 5px;
+	border: 2px solid darkslategray;
 }
 
 div {
-    margin: 0 auto;
-    margin-top: 20px;
+	margin: 0 auto;
+	margin-top: 20px;
 }
 
-input, select {
-    height: 30px;
-    text-align: center;
-    background-color: lightskyblue;
-    padding: 5px;
-    border: none;
-    border-radius: 4px;
+input,
+select {
+	height: 30px;
+	text-align: center;
+	background-color: lightskyblue;
+	padding: 5px;
+	border: none;
+	border-radius: 4px;
 }
 
 button {
-    padding: 10px;
-    border-radius: 3px;
-    border: none;
-    background-color: darkcyan;
-    color: white;
-    cursor: pointer;
+	padding: 10px;
+	border-radius: 3px;
+	border: none;
+	background-color: darkcyan;
+	color: white;
+	cursor: pointer;
 }

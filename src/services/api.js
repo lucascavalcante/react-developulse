@@ -1,7 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
 
-const api = axios.create({
-    baseURL: "https://imc-hiring-test.azurewebsites.net/"
+const externalApi = axios.create({
+	baseURL: "https://imc-hiring-test.azurewebsites.net/",
 });
 
-export default api;
+const internalApi = axios.create({
+	baseURL: "http://localhost:3001",
+});
+
+export { externalApi, internalApi };
