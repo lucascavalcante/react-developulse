@@ -51,7 +51,7 @@ function ContactForm() {
 						<div>
 							First Name <br />
 							<Input
-								name="first-name"
+								name="firstName"
 								type="text"
 								onChange={handleChange}
 								required="required"
@@ -61,7 +61,7 @@ function ContactForm() {
 						<div>
 							Last Name <br />
 							<Input
-								name="last-name"
+								name="lastName"
 								type="text"
 								onChange={handleChange}
 								required="required"
